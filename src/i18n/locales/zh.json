@@ -1,0 +1,13 @@
+{
+  "size": "大小",
+  "opacity": "不透明度",
+  "flow": "流量",
+  "hardness": "硬度",
+  "spacing": "间距",
+  "sync": "同步",
+  "add_favorite": "添加收藏",
+  "enter_name": "请输入预设名称 (需与 PS 预设一致):",
+  "remove_favorite": "删除",
+  "no_favorites": "暂无收藏。请在 PS 选中笔刷后点击 + 号添加。",
+  "confirm_remove": "确定删除此笔刷收藏？"
+}

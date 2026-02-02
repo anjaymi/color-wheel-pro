@@ -1,0 +1,177 @@
+@use "./variables.scss" as *;
+html,
+body {
+  height: 100vh;
+  background-color: #171717;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  > * {
+    margin-top: 1rem;
+  }
+}
+.code {
+  font-family: "Courier New", monospace;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  /* padding: 0.6em 1.2em; */
+}
+button:hover {
+  border: none;
+}
+
+// 全局覆盖 UXP input 样式
+input[type="text"],
+input[type="number"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+p {
+  font-size: 1rem;
+  color: $font;
+}
+.app {
+  background-color: #282c34;
+  text-align: center;
+}
+
+// BOLT_SAMPLECODE_START
+
+.stack-icons {
+  color: $font;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-size: 2.5rem;
+  }
+}
+
+.logo {
+  height: 5rem;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo-lg {
+  height: 6rem;
+}
+.read-the-docs {
+  color: #888;
+}
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > * {
+    margin-right: 0.5rem;
+  }
+}
+
+.stack-colors {
+  display: flex;
+  flex-direction: row;
+
+  div {
+    height: 0.75rem;
+    width: 1.5rem;
+    margin-right: 0.5rem;
+    border-radius: 5px;
+    transition: 1rem;
+    background-color: black;
+  }
+}
+.stack-colors-a {
+  background-color: var(--uxp-host-background-color) !important;
+}
+.stack-colors-b {
+  background-color: var(--uxp-host-text-color) !important;
+}
+.stack-colors-c {
+  background-color: var(--uxp-host-border-color) !important;
+}
+.stack-colors-d {
+  background-color: var(--uxp-host-link-text-color) !important;
+}
+.stack-colors-e {
+  background-color: var(--uxp-host-widget-hover-background-color) !important;
+}
+.stack-colors-f {
+  background-color: var(--uxp-host-widget-hover-text-color) !important;
+}
+.stack-colors-g {
+  background-color: var(--uxp-host-widget-hover-border-color) !important;
+}
+.stack-colors-h {
+  background-color: var(--uxp-host-text-color-secondary) !important;
+}
+.stack-colors-i {
+  background-color: var(--uxp-host-link-hover-text-color) !important;
+}
+.stack-colors-j {
+  background-color: var(--uxp-host-label-text-color) !important;
+}
+
+// BOLT_SAMPLECODE_END
+
+// BOLT_WEBVIEW_START
+
+.webview-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  background-color: $darkest;
+}
+// BOLT_WEBVIEW_END
+
+/* Tooltip Styles */
+/* Tooltip Styles */
+.cwp3-tooltip {
+    position: absolute;
+    top: calc(100% + 4px); /* Closer to button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2b2b2b;
+    color: #f0f0f0;
+    padding: 4px 8px; /* Tighter padding */
+    border-radius: 4px;
+    font-size: 10px; /* Smaller font */
+    line-height: 1.2;
+    white-space: nowrap;
+    width: max-content; /* Ensure container fits text */
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border: 1px solid #444;
+    font-weight: 500;
+}
+
+.icon-btn {
+    position: relative; /* Ensure relative positioning for absolute tooltip */
+}
+
+.icon-btn:hover .cwp3-tooltip {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    visibility: visible;
+}

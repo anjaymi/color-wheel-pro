@@ -1,0 +1,50 @@
+/* @import "./variables.scss"; - Removed to fix build error, variables replaced with fallbacks */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #323232; /* var(--panel-bg) fallback */
+  color: #eeeeee; /* var(--text-color) fallback */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  user-select: none;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* UXP SVG Fix (Nuclear Option for Filled Icons) */
+/* See: .agent/skills/uxp-svg-fix/SKILL.md */
+
+/* 1. The SVG container must have NO fill, otherwise it's a black square */
+svg.uxp-icon {
+  fill: none !important; 
+  /* display: block; - Removed to prevent layout issues */
+}
+
+/* 2. The paths inside must use the current text color */
+svg.uxp-icon path {
+  fill: currentColor !important;
+  /* stroke: none !important; - Removed to prevent invisible icons */
+}
+
+/* 3. If using strokes instead of fills (rare for these icons but possible) */
+svg.uxp-icon.stroked path {
+  fill: none !important;
+  stroke: currentColor !important;
+}

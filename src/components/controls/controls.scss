@@ -1,0 +1,548 @@
+/**
+ * controls.scss - 控制面板组件样式
+ * 现代化毛玻璃风格
+ */
+
+// ============================================
+// 变量
+// ============================================
+$bg-glass: rgba(30, 32, 38, 0.95);
+$border-subtle: rgba(255, 255, 255, 0.08);
+$border-hover: rgba(255, 255, 255, 0.15);
+$text-primary: #eee;
+$text-secondary: #888;
+$radius-sm: 4px;
+$radius-md: 6px;
+$spacing: 8px;
+
+// ============================================
+// ColorSwatches
+// ============================================
+.color-swatches {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    
+    .swatch {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border-radius: $radius-sm;
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        
+        &:hover {
+            transform: scale(1.08);
+            z-index: 10;
+        }
+    }
+    
+    .bg-swatch {
+        bottom: 0;
+        right: 0;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    .fg-swatch {
+        top: 0;
+        left: 0;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        z-index: 2;
+    }
+    
+    .swap-btn {
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        width: 16px;
+        height: 16px;
+        background: rgba(60, 60, 60, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        color: #aaa;
+        font-size: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+        transition: all 0.15s ease;
+        
+        &:hover {
+            background: rgba(80, 80, 80, 0.95);
+            color: #fff;
+            transform: rotate(180deg);
+        }
+    }
+}
+
+// ============================================
+// HexInput
+// ============================================
+.hex-input {
+    display: flex;
+    align-items: center;
+    background: transparent !important;
+    border: none !important;
+    padding: 0;
+    height: 28px;
+    
+    .hash {
+        font-size: 11px;
+        color: #666;
+        font-weight: 500;
+        margin-right: 4px;
+    }
+    
+    input {
+        background: transparent !important;
+        border: none !important;
+        border-width: 0 !important;
+        box-shadow: none !important;
+        color: #fff;
+        font-size: 11px;
+        font-family: 'SF Mono', 'Consolas', monospace;
+        outline: none !important;
+        letter-spacing: 0.5px;
+        font-weight: 500;
+        width: 54px;
+    }
+}
+
+// ============================================
+// HistoryPanel V2 (参考新设计)
+// ============================================
+.history-panel-v2 {
+    background: #242424;
+    border-radius: 16px;
+    padding: 14px;
+    margin-top: 0;
+
+    
+    .history-header {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 10px;
+        
+        .history-icon {
+            font-size: 12px;
+            opacity: 0.6;
+        }
+        
+        .history-title {
+            flex: 1;
+            font-size: 10px;
+            font-weight: 600;
+            color: $text-secondary;
+            letter-spacing: 0.5px;
+        }
+        
+        .history-clear {
+            background: transparent;
+            border: none;
+            color: $text-secondary;
+            font-size: 10px;
+            cursor: pointer;
+            padding: 2px 6px;
+            opacity: 0.5;
+            transition: all 0.15s ease;
+            
+            &:hover {
+                color: #f55;
+                opacity: 1;
+            }
+        }
+    }
+    
+    .history-empty {
+        font-size: 10px;
+        color: $text-secondary;
+        font-style: italic;
+        min-height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        opacity: 0.6;
+    }
+    
+    .history-grid-v2 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        min-height: 24px;
+    }
+    
+    .history-swatch-v2 {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        transition: transform 0.1s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+        flex-shrink: 0;
+        
+        &:hover {
+            transform: scale(1.12);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+    }
+}
+
+// 保留旧样式兼容
+.history-panel {
+    position: relative;
+    
+    .empty-hint {
+        font-size: 10px;
+        color: $text-secondary;
+        font-style: italic;
+        padding: 4px 0;
+    }
+    
+    .history-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    
+    .history-swatch {
+        width: 22px;
+        height: 22px;
+        border-radius: $radius-sm;
+        border: 1px solid $border-subtle;
+        cursor: pointer;
+        transition: transform 0.1s ease, border-color 0.1s ease;
+        
+        &:hover {
+            transform: scale(1.1);
+            border-color: $border-hover;
+        }
+    }
+    
+    .clear-btn {
+        position: absolute;
+        top: 0;
+        right: -20px;
+        background: transparent;
+        border: none;
+        color: $text-secondary;
+        font-size: 10px;
+        cursor: pointer;
+        padding: 2px 4px;
+        opacity: 0.6;
+        
+        &:hover {
+            color: #f55;
+            opacity: 1;
+        }
+    }
+}
+
+// ============================================
+// MixerPanel V2 (参考新设计)
+// ============================================
+.mixer-panel-v2 {
+    background: #242424;
+    border-radius: 16px;
+    padding: 14px;
+    margin-top: 8px;
+    overflow: hidden;
+
+    
+    .mixer-header {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 12px;
+        
+        .mixer-icon {
+            font-size: 12px;
+            opacity: 0.6;
+        }
+        
+        .mixer-title {
+            flex: 1;
+            font-size: 10px;
+            font-weight: 600;
+            color: $text-secondary;
+            letter-spacing: 0.5px;
+        }
+    }
+    
+    .palette-buttons {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+    
+    .palette-btn {
+        flex: 1;
+        min-width: 0; // 允许缩小
+        height: 32px;
+        background: rgba(40, 40, 45, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 18px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 8px !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        
+        &:hover {
+            background: rgba(55, 55, 60, 0.95);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+        
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+    
+    .mode-toggle {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+    
+    .mode-btn {
+        flex: 1;
+        height: 28px;
+        background: rgba(30, 30, 35, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 6px;
+        color: $text-secondary;
+        font-size: 8px !important;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        
+        &:hover {
+            background: rgba(50, 50, 55, 0.9);
+            color: $text-primary;
+        }
+        
+        &.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: $text-primary;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+    
+    .mixer-gradient-v2 {
+        display: flex;
+        height: 28px;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .gradient-step-v2 {
+        flex: 1;
+        height: 100%;
+        min-height: 28px;
+        cursor: pointer;
+        pointer-events: auto;
+        transition: transform 0.1s ease, filter 0.1s ease;
+        
+        &:hover {
+            transform: scaleY(1.2);
+            filter: brightness(1.1);
+            z-index: 1;
+        }
+    }
+}
+
+// 保留旧样式兼容
+.mixer-panel {
+    .mixer-colors {
+        display: flex;
+        justify-content: space-between;
+        gap: $spacing;
+        margin-bottom: $spacing;
+    }
+    
+    .mixer-color-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .set-btn {
+        width: 100%;
+        height: 22px;
+        background: rgba(50, 50, 50, 0.8);
+        border: 1px solid $border-subtle;
+        border-radius: $radius-sm;
+        color: $text-secondary;
+        font-size: 10px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        
+        &:hover {
+            background: rgba(70, 70, 70, 0.9);
+            color: $text-primary;
+            border-color: $border-hover;
+        }
+    }
+    
+    .color-preview {
+        height: 20px;
+        border-radius: $radius-sm;
+        border: 1px solid $border-subtle;
+        cursor: pointer;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+        transition: transform 0.1s ease;
+        
+        &:hover {
+            transform: scale(1.02);
+        }
+    }
+    
+    .mixer-gradient {
+        display: flex;
+        height: 26px;
+        border-radius: $radius-md;
+        overflow: hidden;
+        border: 1px solid $border-subtle;
+    }
+    
+    .gradient-step {
+        flex: 1;
+        cursor: pointer;
+        transition: transform 0.1s ease;
+        
+        &:hover {
+            transform: scaleY(1.15);
+            z-index: 1;
+        }
+    }
+}
+
+// ============================================
+// 通用 CollapsibleSection 样式优化
+// ============================================
+.section-panel {
+    background: $bg-glass;
+    border-radius: $radius-md;
+    margin-bottom: $spacing;
+    overflow: hidden;
+    
+    .section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6px $spacing;
+        cursor: pointer;
+        user-select: none;
+        border-bottom: 1px solid transparent;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        
+        .section-title {
+            font-size: 10px;
+            font-weight: 600;
+            color: $text-secondary;
+            letter-spacing: 0.5px;
+        }
+        
+        .section-arrow {
+            font-size: 8px;
+            color: $text-secondary;
+            transition: transform 0.2s ease;
+        }
+    }
+    
+    &.open .section-header {
+        border-bottom-color: $border-subtle;
+        
+        .section-arrow {
+            transform: rotate(180deg);
+        }
+    }
+    
+    .section-content {
+        padding: $spacing;
+    }
+}
+
+// ============================================
+// SimpleSlider
+// ============================================
+.simple-slider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 20px;
+    
+    .label {
+        font-size: 9px;
+        color: #666;
+        width: 40px;
+        user-select: none;
+    }
+    
+    .track-container {
+        flex: 1;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        touch-action: none;
+    }
+    
+    .track {
+        width: 100%;
+        height: 4px;
+        background: #333;
+        border-radius: 2px;
+        position: relative;
+    }
+    
+    .fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: #5e9fff;
+        border-radius: 2px;
+    }
+    
+    .thumb {
+        position: absolute;
+        top: -4px;
+        width: 12px;
+        height: 12px;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+        transition: transform 0.1s;
+        
+        &.dragging {
+            transform: scale(1.1);
+        }
+    }
+    
+    .value {
+        font-size: 9px;
+        color: #888;
+        width: 28px;
+        text-align: right;
+        user-select: none;
+    }
+}

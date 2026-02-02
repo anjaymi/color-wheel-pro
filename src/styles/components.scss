@@ -1,0 +1,364 @@
+/* Color Wheel Pro Max - Standard UXP Panel (V22.0) */
+:root {
+    --cw-bg: #171717;
+    --cw-text: #ddd;
+    --cw-accent: #3a3a3a;
+    --cw-accent-active: #505050;
+    --cw-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--cw-bg);
+    color: var(--cw-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden; 
+    user-select: none;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* FIX: Align to top */
+    height: 100vh;
+    padding: 10px 16px; /* Reduced top padding */
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow scrolling if content is tall */
+}
+
+/* ToolGrid */
+.cw-tool-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 4px; 
+  padding: 8px 12px;
+  background: #242424;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+  min-height: 40px;
+}
+
+/* 分隔线 */
+.toolbar-separator {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 4px;
+}
+
+.cw-tool-btn {
+  width: 32px; 
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #777;
+  position: relative;
+  transition: all 0.2s ease;
+  
+  svg {
+    width: 18px; 
+    height: 18px;
+    fill: currentColor;
+    display: block;
+    pointer-events: none;
+  }
+
+  &:hover {
+    color: #bbb;
+  }
+
+  &.active {
+    background: #3b9eff;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(59, 158, 255, 0.4);
+  }
+  
+  &.active:hover {
+    background: #5aadff;
+  }
+}
+
+/* --- Wheel Section --- */
+.wheel-container {
+    width: 240px;
+    height: 240px;
+    position: relative;
+    margin-bottom: 40px; /* Increased from 24px => 40px for better spacing */
+    flex-shrink: 0;
+}
+
+/* Shape Toggle */
+/* Re-using similar style for shape toggle if needed, or deprecating in favor of generic icon btn */
+.shape-toggle {
+    /* Legacy class for backwards compat or specific shape toggles */
+    position: relative; 
+    width: 28px; height: 28px;
+    background: rgba(30,30,30,0.8);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--cw-border);
+    color: #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 50;
+    transition: all 0.2s;
+}
+
+/* NEW: Generic Icon Button for Top Toolbar */
+/* UXP SVG Fix (Nuclear Option for Filled Icons) */
+/* See: .agent/skills/uxp-svg-fix/SKILL.md */
+
+/* 1. The SVG container must have NO fill, otherwise it's a black square */
+svg.uxp-icon {
+  fill: none !important; 
+  /* display: block; - Removed to prevent layout issues */
+}
+
+/* 2. The paths inside must use the current text color */
+svg.uxp-icon path {
+  fill: currentColor !important;
+  /* stroke: none !important; - Removed to prevent invisible icons */
+}
+
+/* 3. If using strokes instead of fills (rare for these icons but possible) */
+svg.uxp-icon.stroked path {
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
+/* For Comp icon specifically which uses stroke */
+svg.uxp-icon g circle[stroke],
+svg.uxp-icon circle[stroke] {
+    fill: none !important;
+    stroke: currentColor !important;
+}
+
+/* Ensure circles filled by default unless stroked */
+svg.uxp-icon circle:not([stroke]) {
+    fill: currentColor !important;
+}
+
+/* NEW: Generic Icon Button for Top Toolbar */
+.cw-icon-btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    padding: 2px;
+    margin: 0;
+    min-width: 24px;
+    min-height: 24px;
+    
+    /* Adobe Sample Pattern: Parent sets color */
+    color: #888888; 
+
+    &:hover {
+        background-color: #383838;
+        color: #cccccc; 
+    }
+
+    &.active {
+        color: #ffcc00; 
+    }
+
+    &.active:hover {
+        color: #ffdb4d;
+    }
+
+    /* Adobe Sample Pattern: SVG inherits color */
+    svg {
+        fill: currentColor;
+        pointer-events: none; 
+        display: block; /* Ensure no line-height weirdness */
+    }
+}
+
+/* --- SECTION PANELS --- */
+.cw-section {
+    width: 100%;
+    background-color: #242424; 
+    border: none;
+    border-radius: 16px;
+    padding: 14px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.cw-section:last-child {
+    margin-bottom: 20px; /* Extra space at bottom */
+}
+
+.cw-section-title {
+    font-size: 10px;
+    color: #888;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+/* Optional: Add icon placeholders if we had them, for now just text */
+
+/* --- Controls Wrapper (Vertical Stack) --- */
+.controls-wrapper {
+    width: 100%;
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    /* Removed alignment center to let cards stretch full width */
+    /* align-items: center; <--- REMOVE THIS */
+    padding-top: 10px;
+}
+
+/* 1. Segmented Tabs */
+.segmented-tabs {
+    display: flex;
+    background: rgba(0,0,0,0.3);
+    padding: 3px;
+    border-radius: 6px;
+    border: 1px solid var(--cw-border);
+}
+
+.tab-btn {
+    flex: 1;
+    text-align: center;
+    padding: 4px 0;
+    font-size: 11px;
+    font-weight: 600;
+    color: #888;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.tab-btn.active {
+    background: #444;
+    color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.tab-btn:hover:not(.active) {
+    color: #bbb;
+    background: rgba(255,255,255,0.05);
+}
+
+/* 2. Sliders Container */
+.sliders-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Row: Label | Slider | Input */
+.slider-row {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Standard Gap */
+    height: 18px; 
+    padding: 0; /* Remove padding to keep strict width math */
+}
+
+/* SYMMETRY FIX: Label Width == Input Width */
+.slider-label {
+    width: 32px; /* Determine visual balance with input */
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    text-align: center; 
+    flex-shrink: 0;
+}
+
+.gradient-slider-container {
+    flex: 1; /* Grow to fill space */
+    height: 10px; /* Slimmer track */
+    border-radius: 5px;
+    position: relative;
+    /* Logic handles overflow:visible */
+}
+
+/* Track BG */
+.track-bg {
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.num-input {
+    width: 32px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid transparent; /* Keep logic but ensure 0 on sides/top */
+    box-shadow: none;
+    outline: none;
+    appearance: none; /* Interact like text */
+    -webkit-appearance: none;
+    
+    color: #eee;
+    font-size: 11px;
+    font-family: inherit; 
+    font-weight: 500;
+    text-align: right; 
+    padding: 0 2px;
+    transition: all 0.2s;
+}
+.num-input:focus {
+    border-bottom-color: #888;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    color: #fff;
+}
+
+/* --- History Section --- */
+.history-row {
+    display: flex;
+    gap: 6px;
+    margin-top: 16px;
+    height: 20px;
+    width: 100%;
+    /* justify-content: space-between; Or start? */
+}
+
+.history-swatch {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    transition: transform 0.1s, border-color 0.1s;
+    position: relative;
+}
+
+.history-swatch:hover {
+    transform: scale(1.1);
+    border-color: #fff;
+    z-index: 10;
+}
+
+.history-swatch:active {
+    transform: scale(0.95);
+}
+
+/* Utility */
+
+input[type=range] { opacity: 0; }

@@ -1,0 +1,22 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="catGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5e9fff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Modern Minimalist Cat Head -->
+  <path d="M110 380 C 110 440, 160 490, 256 490 C 352 490, 402 440, 402 380 L 402 240 L 460 160 C 465 150, 455 135, 445 140 L 370 170 C 340 150, 300 140, 256 140 C 212 140, 172 150, 142 170 L 67 140 C 57 135, 47 150, 52 160 L 110 240 L 110 380 Z" 
+        fill="url(#catGradient)" 
+        stroke="white" 
+        stroke-width="12" 
+        stroke-linejoin="round"/>
+        
+  <!-- Eyes -->
+  <circle cx="190" cy="280" r="18" fill="white"/>
+  <circle cx="322" cy="280" r="18" fill="white"/>
+  
+  <!-- Nose -->
+  <path d="M246 320 L 266 320 L 256 335 Z" fill="white"/>
+</svg>

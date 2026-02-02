@@ -1,0 +1,3 @@
+I:/ps plus/color-wheel-pro-3/src/hybrid/build/CMakeFiles/bolt-uxp-hybrid.dir
+I:/ps plus/color-wheel-pro-3/src/hybrid/build/CMakeFiles/ALL_BUILD.dir
+I:/ps plus/color-wheel-pro-3/src/hybrid/build/CMakeFiles/ZERO_CHECK.dir

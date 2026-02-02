@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="I:\ps plus\color-wheel-pro-3\src\hybrid\sdk\utilities\UxpAddon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="I:\ps plus\color-wheel-pro-3\src\hybrid\sdk\utilities\UxpTask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="I:\ps plus\color-wheel-pro-3\src\hybrid\sdk\utilities\UxpValue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="I:\ps plus\color-wheel-pro-3\src\hybrid\PressureReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="I:\ps plus\color-wheel-pro-3\src\hybrid\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C2BDF343-CBD3-3DFF-874C-2ECFBFECFC6D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

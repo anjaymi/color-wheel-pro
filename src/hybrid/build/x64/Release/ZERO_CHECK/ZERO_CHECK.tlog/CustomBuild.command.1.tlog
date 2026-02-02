@@ -1,0 +1,10 @@
+^I:\PS PLUS\COLOR-WHEEL-PRO-3\SRC\HYBRID\BUILD\CMAKEFILES\7E04D307C458AF9322490603333C8551\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SI:/ps plus/color-wheel-pro-3/src/hybrid" "-BI:/ps plus/color-wheel-pro-3/src/hybrid/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "I:/ps plus/color-wheel-pro-3/src/hybrid/build/bolt-uxp-hybrid.slnx"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,0 +1,13 @@
+{
+  "size": "Size",
+  "opacity": "Opacity",
+  "flow": "Flow",
+  "hardness": "Hardness",
+  "spacing": "Spacing",
+  "sync": "Sync",
+  "add_favorite": "Add Favorite",
+  "enter_name": "Enter preset name:",
+  "remove_favorite": "Remove",
+  "no_favorites": "No favorites yet. Select a brush and click + to add.",
+  "confirm_remove": "Remove this brush?"
+}

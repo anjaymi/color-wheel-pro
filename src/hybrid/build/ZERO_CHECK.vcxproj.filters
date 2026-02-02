@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="I:\ps plus\color-wheel-pro-3\src\hybrid\build\CMakeFiles\7e04d307c458af9322490603333c8551\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{11EF30E6-9B08-3404-96E3-075BD307879D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

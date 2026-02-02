@@ -1,0 +1,10 @@
+^I:\PS PLUS\COLOR-WHEEL-PRO-3\SRC\HYBRID\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SI:/ps plus/color-wheel-pro-3/src/hybrid" "-BI:/ps plus/color-wheel-pro-3/src/hybrid/build" --check-stamp-file "I:/ps plus/color-wheel-pro-3/src/hybrid/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
