@@ -1,7 +1,9 @@
-# 喵色环 3 (Meow Color Wheel Pro 3)
+# ![Meow Icon](meow_icon.png) 喵色环 (Meow Color Wheel)
 
-An advanced Color Wheel and Mixing Panel for Adobe Photoshop 2023+ (v24.2+).  
-专为数字绘画设计的现代化色环插件，提供精准的色彩控制、实时和谐色预览以及流畅的绘画体验。
+![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-blue.svg)
+
+A professional color wheel plugin for Adobe Photoshop 2023+ (v24.2+).
+专为 Photoshop 设计的专业色环插件，提供类似 SAI/ClipStudioPaint 的顺滑配色体验。
 
 ![Banner](public/icon_comp.png)
 

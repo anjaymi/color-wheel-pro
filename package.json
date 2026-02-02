@@ -1,7 +1,7 @@
 {
   "name": "com.bolt.uxpcom.psplus.colorwheel3",
   "version": "1.2.10",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/hyperbrew/bolt-uxp.git"
