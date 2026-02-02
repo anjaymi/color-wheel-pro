@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喵色环 (Color Wheel Pro 3) 用户手册</title>
+    <style>
+        :root {
+            --primary: #3b9eff;
+            --text: #333;
+            --bg: #fff;
+            --light-bg: #f5f5f7;
+            --border: #e1e1e1;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 30px;
+            color: var(--primary);
+            border-left: 4px solid var(--primary);
+            padding-left: 10px;
+        }
+        h3 {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #555;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 8px;
+            background: #333;
+            border-radius: 6px;
+            padding: 4px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .feature-card {
+            background: var(--light-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .feature-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .print-btn:hover {
+            background: #2a85e0;
+        }
+        @media print {
+            .print-btn {
+                display: none;
+            }
+            body {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ 打印 / 另存为 PDF</button>
+
+    <h1>喵色环 3 (Color Wheel Pro) 用户手册</h1>
+    <p><strong>版本:</strong> 1.2.10 | <strong>适用软件:</strong> Adobe Photoshop 2023+ (v24.2+)</p>
+
+    <p>喵色环 3 是一款专为数字绘画设计的现代化色环插件，提供精准的色彩控制、实时和谐色预览以及流畅的绘画体验。</p>
+
+    <h2>🚀 快速开始</h2>
+    <h3>安装步骤</h3>
+    <ol>
+        <li>双击安装包 <code>Color Wheel Pro 3.ccx</code>。</li>
+        <li>系统将自动启动 Adobe Creative Cloud 桌面端 (或 UXP Developer Tools)。</li>
+        <li>按照提示完成安装。</li>
+        <li>在 Photoshop 中，点击菜单 <code>Plugins (插件)</code> > <code>Color Wheel Pro 3</code> 启动面板。</li>
+    </ol>
+
+    <h3>手动安装 (不使用 Creative Cloud)</h3>
+    <p>如果您无法使用 CC 桌面端安装，可以尝试以下手动方法：</p>
+    <ol>
+        <li>将安装包 <code>Color Wheel Pro 3.ccx</code> 的扩展名重命名为 <code>.zip</code>。</li>
+        <li>解压该压缩包，得到一个文件夹。</li>
+        <li>将该文件夹复制到 Photoshop 的插件目录：
+            <ul>
+                <li><strong>Windows:</strong> <code>C:\Program Files\Common Files\Adobe\Plug-ins\CC\ColorWheelPro3</code></li>
+                <li><strong>macOS:</strong> <code>/Library/Application Support/Adobe/Plug-ins/CC/ColorWheelPro3</code></li>
+            </ul>
+        </li>
+        <li>重启 Photoshop。</li>
+    </ol>
+
+    <h2>🎮 核心功能栏</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="feature-header">
+                <img src="public/icon_lock.png" class="icon" alt="Lock">
+                <span>锁定亮度 (Lock Brightness)</span>
+            </div>
+            <p>锁定选色的明度 (Value)。即使在色环上随意拖动选择颜色，其明度将保持不变。非常适合在同一明度下丰富色彩变化。</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-header">
+                <img src="public/icon_analog.png" class="icon" alt="Analog">
+                <span>近似色和谐 (Analogous)</span>
+            </div>
+            <p>在色环上显示当前颜色的近似色范围。帮助您快速构建协调统一的色调。</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-header">
+                <img src="public/icon_comp.png" class="icon" alt="Comp">
+                <span>互补色和谐 (Complementary)</span>
+            </div>
+            <p>在色环对面显示当前颜色的互补色。用于寻找对比色，增加画面的视觉冲击力。</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-header">
+                <img src="public/icon_grayscale.png" class="icon" alt="Grayscale">
+                <span>黑白模式 (Grayscale)</span>
+            </div>
+            <p>一键将色环切换为黑白显示。用于快速检查色彩的明度关系（素描关系），而不受色相干扰。</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-header">
+                <img src="public/icon_view.png" class="icon" alt="View">
+                <span>切换视图 (View Mode)</span>
+            </div>
+            <p>切换色板的显示模式：</p>
+            <ul>
+                <li><strong>Tab 模式</strong>: 分组显示色板。</li>
+                <li><strong>List 模式</strong>: 列表平铺显示色板。</li>
+            </ul>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-header">
+                <img src="public/icon_shape.png" class="icon" alt="Shape">
+                <span>切换形状 (Shape)</span>
+            </div>
+            <p>在 <strong>三角形 (Triangle)</strong> 和 <strong>正方形 (Square)</strong> 色环之间切换。满足不同用户对饱和度和明度选取的习惯。</p>
+        </div>
+    </div>
+
+    <h2>🎨 交互技巧</h2>
+    <ul>
+        <li><strong>HUD 选色器</strong>: 在画布上按住 <code>Shift + Alt + 右键</code> (Windows) 可唤出原生 HUD。插件色环与前景色实时同步。</li>
+        <li><strong>数值微调</strong>: 在底部的 HSB/RGB 滑块上，您可以直接拖动滑块，或者点击数值进行精确输入。</li>
+    </ul>
+
+    <h2>❓ 常见问题</h2>
+    <h3>为什么看不到工具提示？</h3>
+    <p>请将鼠标悬停在图标上 0.5 秒左右，黑色半透明的工具提示将会浮现。最新版本优化了提示框的位置和大小，避免遮挡视线。</p>
+
+    <h3>如何卸载？</h3>
+    <p>在 Creative Cloud 桌面端中，找到 "Color Wheel Pro 3"，点击 "Uninstall" 即可。</p>
+
+    <hr style="margin-top: 40px; border: 0; border-top: 1px solid #eee;">
+    <p style="text-align: center; color: #888; font-size: 0.9em;">© 2026 Bolt UXP. All rights reserved.</p>
+</body>
+</html>
