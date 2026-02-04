@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import "../styles/components.scss";
 import { HSV, RGB, hsvToRgb, rgbToHsv, hsvToHex, hexToRgb } from "../utils/color";
-import { t } from '../utils/i18n';
+import { t } from '../i18n';
 import { SliderRow } from "./SliderRow";
 import { CollapsibleSection } from "./CollapsibleSection";
 import { HueRing } from "./HueRing";
@@ -12,13 +12,13 @@ import { ScratchpadPanel } from "./controls/ScratchpadPanel";
 import { HistoryPanel } from "./controls/HistoryPanel";
 import { WheelIndicators } from "./WheelIndicators";
 import { WheelToolbar } from "./WheelToolbar";
+import { SettingsModal } from "./SettingsModal";
 import { ColorSwatches, HexInput } from "./controls";
 import { 
     getForegroundColor, setForegroundColor, 
     getBackgroundColor, setBackgroundColor,
     startColorTracking 
 } from "../api/photoshop";
-
 
 export const ColorWheel = () => {
 
@@ -38,6 +38,7 @@ export const ColorWheel = () => {
     const [viewMode, setViewMode] = useState<'tab' | 'list'>('tab');
     const [isGrayscale, setIsGrayscale] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
+    const [showSettings, setShowSettings] = useState(false);
     
     // FG/BG
     const [bgColor, setBgColor] = useState<HSV>({h:0, s:0, v:100}); 
@@ -144,6 +145,7 @@ export const ColorWheel = () => {
              }
         }
     };
+
 
     const [history, setHistory] = useState<string[]>([]);
     const [mixerA, setMixerA] = useState<string>('rgb(0,0,0)');
@@ -335,7 +337,10 @@ export const ColorWheel = () => {
                 isGrayscale={isGrayscale} setIsGrayscale={setIsGrayscale}
                 viewMode={viewMode} setViewMode={setViewMode}
                 shape={shape} setShape={setShape}
+                onSettingsClick={() => setShowSettings(true)}
              />
+
+             {showSettings && <SettingsModal onClose={() => setShowSettings(false)} />}
 
              {/* 2. Wheel */}
              <div 

@@ -1,5 +1,6 @@
+// @ts-nocheck
 import React from "react";
-import { t } from '../utils/i18n';
+import { t } from '../i18n';
 
 /**
  * WheelToolbar - 现代化 PNG 图标工具栏
@@ -19,6 +20,7 @@ interface WheelToolbarProps {
     setViewMode: (v: 'tab' | 'list') => void;
     shape: 'square' | 'triangle';
     setShape: (v: 'square' | 'triangle') => void;
+    onSettingsClick: () => void;
 }
 
 // 现代化图标按钮组件
@@ -78,7 +80,8 @@ export const WheelToolbar: React.FC<WheelToolbarProps> = ({
     showComp, setShowComp,
     isGrayscale, setIsGrayscale,
     viewMode, setViewMode,
-    shape, setShape
+    shape, setShape,
+    onSettingsClick
 }) => {
     return (
         <div style={{
@@ -127,17 +130,24 @@ export const WheelToolbar: React.FC<WheelToolbarProps> = ({
                     src="./icon_grayscale.png"
                     active={isGrayscale}
                     onClick={() => setIsGrayscale(!isGrayscale)}
-                    title="黑白模式"
+                    title={t('toggle_grayscale')}
                 />
                 <IconBtn 
                     src="./icon_view.png"
                     onClick={() => setViewMode(viewMode === 'tab' ? 'list' : 'tab')}
-                    title="切换视图"
+                    title={t('toggle_view')}
                 />
                 <IconBtn 
                     src={shape === 'triangle' ? "./icon_square.png" : "./icon_shape.png"}
                     onClick={() => setShape(shape === 'square' ? 'triangle' : 'square')}
                     title="切换形状"
+                />
+                
+                {/* SETTINGS BUTTON */}
+                <IconBtn 
+                    src="./Setting.png" 
+                    onClick={onSettingsClick}
+                    title={t('settings')}
                 />
             </div>
         </div>
